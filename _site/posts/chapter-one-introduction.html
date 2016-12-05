@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Math 301 - Advanced Calculus | Chapter 1 Notes</title>
+  <meta name="description" content="Course prerequisites.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="Chapter 1 Notes">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="http://localhost:4000/posts/chapter-one-introduction">
+  <meta property="og:description" content="Course prerequisites.">
+  <meta property="og:site_name" content="Math 301 - Advanced Calculus">
+  <meta property="og:image" content="http://localhost:4000/assets/og-image.jpg">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:url" content="http://localhost:4000/posts/chapter-one-introduction">
+  <meta name="twitter:title" content="Chapter 1 Notes">
+  <meta name="twitter:description" content="Course prerequisites.">
+  <meta name="twitter:image" content="http://localhost:4000/assets/og-image.jpg">
+
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <link href="http://localhost:4000/feed.xml" type="application/rss+xml" rel="alternate" title="Math 301 - Advanced Calculus Last 10 blog posts" />
+
+  
+    <link type="text/css" rel="stylesheet" href="/assets/light.css">
+  
+
+</head>
+
+<body>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+  <main role="main">
+    <div class="grid grid-centered">
+      <div class="grid-cell">
+        <nav class="header-nav reveal">
+  <a href="/" class="header-logo" title="Math 301 - Advanced Calculus">Math 301 - Advanced Calculus</a>
+  <ul class="header-links">
+    
+      <li>
+        <a href="https://twitter.com/aylvisaker" target="_blank" title="Twitter">
+          <span class="icon icon-social-twitter"></span>
+        </a>
+      </li>
+    
+    
+    
+      <li>
+        <a href="https://github.com/aylvisaker" target="_blank" title="GitHub">
+          <span class="icon icon-social-github"></span>
+        </a>
+      </li>
+    
+    
+    
+    
+    
+    
+      <li>
+        <a href="mailto:aylvisaker@protonmail.com" target="_blank" title="Email">
+          <span class="icon icon-at"></span>
+        </a>
+      </li>
+    
+    
+      <li>
+        <a href="/feed.xml" target="_blank" title="RSS">
+          <span class="icon icon-social-rss"></span>
+        </a>
+      </li>
+    
+  </ul>
+</nav>
+
+        <article class="article reveal">
+          <header class="article-header">
+            <h1>Chapter 1 Notes</h1>
+            <p>Course prerequisites.</p>
+            <div class="article-list-footer">
+              <span class="article-list-date">
+                December 3, 2016
+              </span>
+              <span class="article-list-divider">-</span>
+              <!-- span class="article-list-minutes">
+                
+                
+                  2 minute read
+                
+              </span>
+              <span class="article-list-divider">-</span -->
+              <div class="article-list-tags">
+                
+                  <a href="/tag/notes">notes</a>
+                
+              </div>
+            </div>
+          </header>
+
+          <div class="article-content">
+            <h1 id="introduction">Introduction</h1>
+<p>This class assumes basic familiarity with <strong>arithmetic</strong>, <strong>algebra</strong>, and <strong>sets</strong> (particularly the fundamental theorems of the former). The <strong>additive identity</strong> is \(0\). The <strong>multiplicative identity</strong> is \(1\). The set of <strong>natural numbers</strong> is \(\mathbb{N}\), the smallest set that contains \(\{0,1\}\) and is closed under addition, multiplication, and exponentiation.</p>
+
+<p>\[ \mathbb{N} = \{0,1,2,\dots\} \]</p>
+
+<p>The <strong>additive inverse</strong> of a number, \(n\), is the number \(-n\). The set of  <strong>integers</strong> is  \(\mathbb{Z}\), the smallest set that contains \(\mathbb{N}\) and is closed under additive inverses, addition, subtraction, and multiplication. \(\mathbb{Z}\) is not closed under exponentiation.</p>
+
+<p>\[ \mathbb{Z} = \{\dots,-2,-1,0,1,2,\dots\} \]</p>
+
+<p>The <strong>multiplicative inverse</strong> of a non-zero number, \(n\), is the number \(\frac{1}{n}\). The <strong>rational numbers</strong> is  \(\mathbb{Q}\), the smallest set that contains \(\mathbb{Z}\) and is closed under inverses, addition, subtraction, multiplication, and non-zero division. \(\mathbb{Q}\) is not closed under exponentiation.</p>
+
+<p>\[ \mathbb{Q} = \left\{\frac{m}{n} \mid m,n\in\mathbb{Z},n\neq0\right\} \]</p>
+
+<p><strong><em>Theorem</em></strong>. \(\sqrt{2}\notin\mathbb{Q}\).</p>
+
+<p><strong><em>Proof</em></strong>. Suppose that \(\sqrt{2} = x = \frac{a}{b}\) where \(a,b\in\mathbb{Z}\) and \(b\neq0\). Then let \(y = x^2\cdot b = 2b^2= a^2)\). Observe that \(a, b\), and \(y\) are integers, and so by the fundamental theorem of arithmetic, have unique prime factorizations.</p>
+
+<p>\[a = \prod_{k=1}^{r}p_{i_k}^{d_k}\]
+\[b = \prod_{k=1}^{s}q_{i_k}^{e_k}\]</p>
+
+<p>Now consider the prime factorization(s) of \(y\):</p>
+
+<p>\[y = a^2 = \prod_{k=1}^{r}p_{i_k}^{2d_k}\]
+\[y = 2b^2 = 2\prod_{k=1}^{s}q_{i_k}^{2e_k}\]</p>
+
+<p>These cannot possibly be the same prime factorizations because the former has an even exponent on the prime \(2\), while the latter has an odd exponent on the prime \(2\). This contradicts the uniqueness part of the fundamental theorem of arithmetic for the integer \(y\). \(\Box\)</p>
+
+<h1 id="ordered-sets">Ordered Sets</h1>
+
+          </div>
+
+          <!-- div class="article-share">
+            
+            <a href="" title="Share on Twitter" onclick="window.open('https://twitter.com/home?status=Chapter 1 Notes - http://localhost:4000/posts/chapter-one-introduction by @aylvisaker', 'newwindow', 'width=500, height=225'); return false;">
+              <span class="icon icon-social-twitter"></span>
+            </a>
+            <a href="" title="Share on Facebook" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/posts/chapter-one-introduction', 'newwindow', 'width=500, height=500'); return false;">
+              <span class="icon icon-social-facebook"></span>
+            </a>
+            <a href="" title="Share on Google+" onclick="window.open('https://plus.google.com/share?url=http://localhost:4000/posts/chapter-one-introduction', 'newwindow', 'width=550, height=400'); return false;">
+              <span class="icon icon-social-googleplus"></span>
+            </a>
+          </div -->
+
+          
+        </article>
+        <footer class="footer reveal">
+  <p>
+  Created with <a href="https://jekyllrb.com/">Jekyll</a> using the <a href="https://github.com/nielsenramon/chalk">Chalk</a> theme. Hosted by <a href ="https://www.github.com">GitHub</a>.
+  </p>
+</footer>
+
+      </div>
+    </div>
+  </main>
+  <script type="text/javascript" src="/assets/vendor.js"></script>
+<script type="text/javascript" src="/assets/application.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
+<script>
+  WebFont.load({
+    google: {
+      families: ['Cormorant Garamond:700', 'Lato:300,400,700']
+    }
+  });
+</script>
+
+
+
+</body>
+</html>
