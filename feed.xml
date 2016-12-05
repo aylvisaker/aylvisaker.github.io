@@ -1,37 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
   <channel>
-    <title>Andrew Ylvisaker</title>
-    <description>is a guy that works at a place.</description>
-    <link>https://aylvisaker.github.iohttps://aylvisaker.github.io/</link>
-    <atom:link href="https://aylvisaker.github.iohttps://aylvisaker.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 04 Dec 2016 18:30:30 -0600</pubDate>
-    <lastBuildDate>Sun, 04 Dec 2016 18:30:30 -0600</lastBuildDate>
-    <generator>Jekyll v2.5.3</generator>
+    <title>Math 301 - Advanced Calculus</title>
+    <description></description>
+    <link>http://aylvisaker.github.io/MC-MATH301-SP17</link>
+    <atom:link href="http://aylvisaker.github.io/MC-MATH301-SP17/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
         <title>Chapter 1 : Introduction</title>
-        <description>&lt;p&gt;The &lt;strong&gt;natural numbers&lt;/strong&gt; are the non-negative counting numbers: \( \mathbb{N} = {0,1,2,\dots} \).&lt;/p&gt;
-
-&lt;p&gt;The &lt;strong&gt;integers&lt;/strong&gt; also include negatives of natural numbers: \( \mathbb{Z} = {\dots,-2,-1,0,1,2,\dots} \)&lt;/p&gt;
-
-&lt;p&gt;The &lt;strong&gt;rational numbers&lt;/strong&gt; consist of ratios of integers. 
-$$ \mathbb{Q} = \[ m/n \mid m,n\in\mathbb{Z},n\neq0} \]&lt;/p&gt;
-
-&lt;p&gt;We also assume familiarity with &lt;strong&gt;arithmetic&lt;/strong&gt; and &lt;strong&gt;algebra&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;foo&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;foo&amp;#39;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-</description>
+        <description>Course prerequisites.</description>
         <pubDate>Sat, 03 Dec 2016 00:00:00 -0600</pubDate>
-        <link>https://aylvisaker.github.iohttps://aylvisaker.github.io/notes/2016/chapter-one-introduction/</link>
-        <guid isPermaLink="true">https://aylvisaker.github.iohttps://aylvisaker.github.io/notes/2016/chapter-one-introduction/</guid>
-        
-        
-        <category>notes</category>
-        
+        <link>http://aylvisaker.github.io/MC-MATH301-SP17/posts/chapter-one-introduction</link>
+        <guid isPermaLink="true">http://aylvisaker.github.io/MC-MATH301-SP17/posts/chapter-one-introduction</guid>
       </item>
     
   </channel>
