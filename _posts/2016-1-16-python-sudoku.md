@@ -29,4 +29,7 @@ squares = list(range(basis ** 4))
 blocks = squares[i*basis:(i+1)*basis for i in basis]
 {% endhighlight %}
 
-
+|the     |quick   |brown  |
+|--------|--------|-------|
+|fox     |jumps   |over   |
+|the     |lazy    |dog.   |
