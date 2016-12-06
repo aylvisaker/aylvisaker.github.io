@@ -20,13 +20,13 @@ description: Sudoku Generator
 We will need some packages. But not all of these.
 {% highlight python %}
 import os, sys, time, math, numpy
-{% end highlight %}
+{% endhighlight %}
 
 ### Constants and tools
 {% highlight python %}
 basis = 3
 squares = list(range(basis ** 4))
 blocks = squares[i*basis:(i+1)*basis for i in basis]
-{% end highlight %}
+{% endhighlight %}
 
 
