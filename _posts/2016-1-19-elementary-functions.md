@@ -1,10 +1,10 @@
 ---
 layout: post
-title: "Advanced Calculus"
+title: "Elementary Functions"
 categories: [courses]
 tags: [course]
-description: MC-MATH-301
+description: MC-MATH-141
 ---
 
-This will be a class.
+[Check the course homepage.](https://aylvisaker.github.io/MC-MATH-141)
 

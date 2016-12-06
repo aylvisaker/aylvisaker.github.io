@@ -6,5 +6,5 @@ tags: [course]
 description: MC-MATH-301
 ---
 
-This will be a class.
+[Check the course homepage.](https://aylvisaker.github.io/MC-MATH-301)
 
