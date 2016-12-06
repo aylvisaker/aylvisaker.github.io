@@ -10,21 +10,23 @@ description: Sudoku Generator
 
 # Python Sudoku
 ### Goals
-- [X] Solve sudoku puzzles.
-- [X] Solve sudoku puzzles with arbitrary basis.
-- [ ] Check a puzzle for multiple solutions.
-- [ ] Generate a puzzle.
-- [ ] Solve and grade a puzzle using only logic.
+* Solve sudoku puzzles.
+* Solve sudoku puzzles with arbitrary basis.
+* Check a puzzle for multiple solutions.
+* Generate a puzzle.
+* Solve and grade a puzzle using only logic.
 
 ### Prerquisites
-We will need some packages 
-```python
+We will need some packages. But not all of these.
+{% highlight python %}
 import os, sys, time, math, numpy
-```
+{% end highlight %}
 
 ### Constants and tools
-```python
+{% highlight python %}
 basis = 3
-squares = list(Range(basis ** 4))
+squares = list(range(basis ** 4))
 blocks = squares[i*basis:(i+1)*basis for i in basis]
-```
+{% end highlight %}
+
+
