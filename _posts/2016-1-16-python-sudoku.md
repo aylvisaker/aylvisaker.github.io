@@ -28,7 +28,7 @@ def cross(a, b):
 {% endhighlight %}
 
 {% highlight python %}
-{% includes sudoku.py %}
+{% include sudoku.py %}
 {% endhighlight %}
 
 Here is some `inline code`. Next is a table
