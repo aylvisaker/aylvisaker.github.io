@@ -29,9 +29,9 @@ squares = list(range(basis ** 4))
 blocks = squares[i*basis:(i+1)*basis for i in basis]
 {% endhighlight %}
 
-Here is some `inline code`. See if it works. The table is a test as well.
+Here is some `inline code`. Next is a table
 
-\|the     \|quick   \|brown  \|
-\|--------\|--------\|-------\|
-\|fox     \|jumps   \|over   \|
-\|the     \|lazy    \|dog.   \|
+|the     |quick   |brown  |
+| :----- | -----: | :---: |
+|fox     |jumps   |over   |
+|the     |lazy    |dog.   |
