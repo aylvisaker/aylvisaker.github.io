@@ -22,7 +22,7 @@ social:
   bitcoin: # Add your Bitcoin link or address
 
 # Important settings (change at own risk)
-
+highlighter: rouge
 assets:
   compress:
     css: true
@@ -61,4 +61,5 @@ gems:
   - jekyll-assets
   - jekyll-paginate
   - jekyll-sitemap
+  - rouge
 permalink: posts/:slug
