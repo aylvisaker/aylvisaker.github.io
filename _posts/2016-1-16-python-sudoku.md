@@ -16,17 +16,19 @@ description: Sudoku Generator
 * Generate a puzzle.
 * Solve and grade a puzzle using only logic.
 
-### Prerquisites
+### Prerquisites, constants, and tools
 We will need some packages. But not all of these.
 {% highlight python %}
-import os, sys, time, math, numpy
-{% endhighlight %}
-
-### Constants and tools
-{% highlight python %}
+import os, sys
 basis = 3
 squares = list(range(basis ** 4))
 blocks = squares[i*basis:(i+1)*basis for i in basis]
+def cross(a, b):
+    return []
+{% endhighlight %}
+
+{% highlight python %}
+{% includes sudoku.py %}
 {% endhighlight %}
 
 Here is some `inline code`. Next is a table
