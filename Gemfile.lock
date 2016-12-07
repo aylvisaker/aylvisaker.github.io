@@ -102,6 +102,7 @@ DEPENDENCIES
   jekyll-paginate
   jekyll-sitemap
   mini_magick
+  rouge
   sass
   uglifier
 
