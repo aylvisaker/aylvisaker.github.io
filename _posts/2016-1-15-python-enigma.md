@@ -42,7 +42,7 @@ One way of increasing the keyspace was to introduce extra rotors. The German arm
 
 The real boost to the keyspace came from the addition of a plugboard. In a compartment at the front of the machine operators could find \\(26\\) plugs for up to \\(13\\) wires (although the standard practice was to use exactly \\(10\\)). Current travelled through these wires once after the key on the way to the rotor and once again after the reverse path through the rotors on the way to the lightboard. The effect was an *additional* permutation in the system. But this one can be set up in a staggeringly large number of ways (much more than \\(26\\)). The number of ways to configure a plugboard with \\(10\\) wires is:
 
-\\[ \frac{1}{10!}\\cdot\\binom{26}{2}\\binom{24}{2}\\cdot\\binom{22}{2}\\dots\\binom{10}{2}\\cdot\\binom{8}{2}\\right) \\]
+\\[ \frac{1}{10!}\\cdot\\binom{26}{2}\\binom{24}{2}\\cdot\\binom{22}{2}\\dots\\binom{10}{2}\\cdot\\binom{8}{2} \\]
 
 That's 151 trillion (a trillion is a million million) different keys. Multiply that by the keyspace from the standard machine with \\(5\\) rotors and \\(3\\) slots, and you've got . The plugboard (and extra rotor) do not change much about the substance arguments made above about the special properties of the final permutation, \\(\\sigma\\). It is still an involutory derangement because it is still *similar* to \\(\\tau\\) which is such. All told the military version of the enigma machine was approximately equivalent to a \\(67\\) bit key (or \\(76\\) for the naval M4).
 
