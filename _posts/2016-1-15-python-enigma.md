@@ -1,3 +1,11 @@
+---
+layout: post
+title: "Python Enigma"
+categories: [projects]
+tags: [puzzles]
+description: ""
+---
+
 # python-enigma
 [The repository](github.io/aylvisaker/python-enigma) stores a python implementation of the Enigma Machine. It creates a class called `enigma` which is fully compatible with historical machines with a variety of different rotor configurations.
 
@@ -15,7 +23,7 @@ Mathematically speaking, the Enigma Machine generates a permutation which is a *
 The first two ensure that \\(\\sigma\\) is a permutation and the third ensures it is a *derangment*. The fourth says that \\(\\sigma\\) has *order 2*. Property four was implemented as a convenience, but the implementation also gave rise to property three which, we shall see, was the thread that made the whole sweater unravel. The convenience we speak of was that the machine could encrypt and decrypt without making any changes. For example, if Alice sets her machine to `ABC` and types `HELLO WORLD` she might read something like `IOVDA YUEBH` from her lightboard. If Bob then sets his machine to `ABC` and keys in that ciphertext, `HELLO WORLD` will appear on his lightboard.
 
 The derangments for each key setting are generated with something called a *similarity*. Conventional current travels out of the positive terminal battery and through the circuit for the depressed key. It enters the first wheel and comes out at a different spot on the wheel (as a matter of fact each wheel deranges the letters, but this doesn't turn out to be important). The current continues in a similar fashion through wheels two and three (and perhaps four if we're using a German navy machine). This entire process can be regarded as one permutation \\(\\rho\\). For example, instead of saying 
-\\[A \\stackbin{W\_1}{\\mapsto} B \\stackbin{W\_2}{\\mapsto} C \\stackbin{}{W\_3} D\\]
+\\[A \\stackrel{W\_1}{\\mapsto} B \\stackbin{W\_2}{\\mapsto} C \\stackbin{}{W\_3} D\\]
 we may just say that \\(A\\stackbin{\\rho}{\\mapsto}D\\).
 
 After the current maps through \\(\\rho\\) it hits something called the reflector, \\(\\tau\\). The reflector's circuitry implements a derangement of order 2 (which, we shall see, is **very** important). Finally the current travels *backwards* through \\(\\rho\\) and a fillament in the lightboard before completing its journey at the negative terminal of the battery. They key thing to understand is that this whole process guarantees that \\(\\sigma\\) is *also* a derangement of order 2. To see why, imagine the journey of a key mapped through the entire process (\\(\\sigma\\)), twice. Here is a plausible example: we enter `A` on the keyboard. First \\(\\rho(A) = B\\) takes us through the rotors, then \\(\\tau(B)=C\\) takes us through the reflector. When traveling *backwards* through the rotors, we are mapping through \\(\\rho^{-1}\\). This is a slightly fancy way of saying that if \\(\\rho(A)=B\\) then \\(\\rho^{-1}(B)=A\\). This is behavior is exactly what you would expect from connected wires. So finally \\(\\rho^{-1}(C)=D\\) and we have encrypted \\(\\sigma(A)=D\\) (so `D` lights up on our machine). In mathematical notation, we would say \\(\\sigma=\\rho^{-1}\\tau\\rho\\). This type of relationship is what mathematicians like to call a **similarity**. It is a good exercise to convince oneself that \\(\\rho\\) and \\(\\sigma\\) are actually permutations (i.e. satisfy properties one and two).
