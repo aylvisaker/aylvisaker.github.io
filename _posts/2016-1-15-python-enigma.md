@@ -7,6 +7,8 @@ description: ""
 ---
 
 # python-enigma
+$x^2=2x-1$ if and only if $x=1$
+
 [The repository](github.io/aylvisaker/python-enigma) stores a python implementation of the Enigma Machine. It creates a class called `enigma` which is fully compatible with historical machines with a variety of different rotor configurations.
 
 ### About the Enigma Machine
