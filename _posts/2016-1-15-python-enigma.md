@@ -55,6 +55,13 @@ That's over $150$ trillion different plugboard variations. Multiply that by the 
 
 ### Breaking the Enigma Machine
 
+### Code
+```python
+print('hello world')
+for x in range(y):
+	print(3 + 4*5)
+```
+
 ### Future Work
 The repository will eventually contain an easy-to-use implementation of the British Bombe machine. It will accept a ciphertext message along with a *crib* and a location for that crib. After testing all of the wheel settings for *contradictions*, the machine will return a set of plausible wheel settings.
 
