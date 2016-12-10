@@ -9,17 +9,18 @@ blog_theme: light # Or use dark
 # Optional settings
 
 discus_identifier: # Add your Disqus identifier
-ga_analytics: # Add your GA Tracking Id
+ga_analytics: UA-88755650-1 # Add your GA Tracking Id
 rss_enabled: true # Change to false if not
 social:
-  dribbble: # Add your Dribbble handle
-  facebook: # Add your Facebook handle
-  flickr: # Add your Flickr handle
-  github: aylvisaker # Add your GitHub handle
-  linkedin: # Add your LinkedIn handle
-  twitter: #aylvisaker # Add your Twitter handle
-  email: aylvisaker@monmouthcollege.edu # Add your Email address
-  bitcoin: # Add your Bitcoin link or address
+  dribbble: #
+  facebook: #
+  flickr: #
+  github: aylvisaker
+  linkedin: #
+  twitter: #aylvisaker
+  email: aylvisaker@monmouthcollege.edu
+  bitcoin: #
+  reddit: aylvisaker
 
 # Important settings (change at own risk)
 highlighter: rouge
