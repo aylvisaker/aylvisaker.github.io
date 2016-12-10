@@ -6,7 +6,6 @@ description: "mostly mathematics and computer science"
 
 <ul class="article-list">
   {% for post in paginator.posts %}
-    <center>
     <li class="article-list-item reveal">
       <a href="{{ post.url | relative_url }}" title="{{ post.title }}">
         <h5>
@@ -36,7 +35,6 @@ description: "mostly mathematics and computer science"
         </div>
       </div>
     </li>
-	</center>
   {% endfor %}
   {% if paginator.total_pages > 1 %}
     <li class="article-pagination reveal">
