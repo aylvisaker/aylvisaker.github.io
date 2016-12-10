@@ -3,7 +3,7 @@ layout: post
 title: "Python Enigma"
 categories: [projects]
 tags: [cryptography, permutations, code]
-description: ""
+description: "WWII Cryptography on 21st Century Machinery"
 ---
 
 Python Enigma
