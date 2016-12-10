@@ -1,13 +1,20 @@
 <nav class="header-nav reveal">
   <a href="{{ '/' | relative_url }}" class="header-logo" title="{{ site.name }}">{{ site.name }}</a>
   <ul class="header-links">
-    {% if site.social.twitter %}
+      {% if site.social.reddit %}
       <li>
-        <a href="https://twitter.com/{{ site.social.twitter }}" target="_blank" title="Twitter">
-          <span class="icon icon-social-twitter"></span>
-        </a>
+          <a href="https://reddit.com/u/{{ site.social.reddit }}" target="_blank" title="Reddit">
+              <span class="icon icon-social-reddit"></span>
+          </a>
       </li>
-    {% endif %}
+      {% endif %}
+      {% if site.social.twitter %}
+      <li>
+          <a href="https://twitter.com/{{ site.social.twitter }}" target="_blank" title="Twitter">
+              <span class="icon icon-social-twitter"></span>
+          </a>
+      </li>
+      {% endif %}
     {% if site.social.facebook %}
       <li>
         <a href="https://www.facebook.com/{{ site.social.facebook }}" target="_blank" title="Facebook">
