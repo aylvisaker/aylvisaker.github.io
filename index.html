@@ -7,13 +7,19 @@ description: "mostly mathematics and computer science"
 <ul class="article-list">
   {% for post in paginator.posts %}
     <li class="article-list-item reveal">
-      <a href="{{ post.url | relative_url }}" title="{{ post.title }}">
-        <h5>
-          {{ post.title }}
-          <span class="icon icon-ios-arrow-thin-right"></span>
-		  <h6>{{ post.description }}</h6>
-        </h5>
-      </a>
+	  <colgroup>
+        <col>
+          <a href="{{ post.url | relative_url }}" title="{{ post.title }}">
+            <h5>
+              {{ post.title }}
+              <span class="icon icon-ios-arrow-thin-right"></span>
+            </h5>
+          </a>
+        </col>
+        <col>
+          <h6>{{ post.description }}</h6>
+	    </col>
+	  </colgroup>
       <div class="article-list-footer">
         <span class="article-list-date">
           {{ post.date | date: "%B %-d, %Y" }}

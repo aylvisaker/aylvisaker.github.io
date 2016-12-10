@@ -2,7 +2,7 @@
 layout: post
 title: "Python Sudoku"
 categories: [projects]
-tags: [puzzles]
+tags: [puzzles, permutations, code]
 description: Sudoku Generator
 ---
 
@@ -17,23 +17,7 @@ description: Sudoku Generator
 * Solve and grade a puzzle using only logic.
 
 ### Prerquisites, constants, and tools
-We will need some packages. But not all of these.
-{% highlight python %}
-import os, sys
-basis = 3
-squares = list(range(basis ** 4))
-blocks = squares[i*basis:(i+1)*basis for i in basis]
-def cross(a, b):
-    return []
-{% endhighlight %}
 
 {% highlight python %}
 {% include sudoku.py %}
 {% endhighlight %}
-
-Here is some `inline code`. Next is a table
-
-|the     |quick   |brown  |
-| :----- | -----: | :---: |
-|fox     |jumps   |over   |
-|the     |lazy    |dog.   |
