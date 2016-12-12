@@ -2,7 +2,7 @@
 layout: post
 title: "Python Enigma"
 categories: [projects]
-tags: [cryptography, permutations, code]
+tags: [cryptography, code]
 description: "WWII Cryptography on 21st Century Machinery"
 ---
 
@@ -82,3 +82,5 @@ The repository will eventually contain an easy-to-use implementation of the Brit
 * *hill-climbing algorithm*
 * Frequent German words dictionary for searching without a key.
 * Database of historical Enigma messages.
+
+
