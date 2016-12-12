@@ -62,7 +62,7 @@ The real boost to the key space came from the addition of a plugboard. Enigma op
 
 $$ \frac{1}{10!}\cdot\binom{26}{2}\cdot\binom{24}{2}\cdot\binom{22}{2}\dots\binom{10}{2}\cdot\binom{8}{2}  $$
 
-That's over $150$ trillion different plugboard variations. Multiply that by the number of ways to select and configure the rotors and you have a very very large key space.  All told the army version of the Enigma had about $159$ quintillion different key settings (that's a $159$ million million million). The navel M4 is almost $300$ times larger with over $46289$ quintillion keys: $ 46\,289\,896\,079\,431\,036\,032\,000 $. Even checking one million keys per second (which is quite a bit faster than I can do on my home computer), it would take over $5$ million years to check all the possible key settings for an army Enigma. If you had that many sheets of paper to stack, the stack would reach Proxima Centuary. And back. Fifty-eight times.
+That's over $150$ trillion different plugboard variations. Multiply that by the number of ways to select and configure the rotors and you have a very very large key space.  All told the army version of the Enigma had about $159$ quintillion different key settings (that's a $159$ million million million). The navel M4 is almost $300$ times larger with over $46289$ quintillion keys: $ 46\,289\,896\,079\,431\,036\,032\,000 $. Even checking one million keys per second (which is quite a bit faster than I can do on my home computer), it would take over $5$ million years to check all the possible key settings for an army Enigma. If you had that many sheets of paper to stack, the stack would reach Proxima Centauri. And back. Fifty-eight times.
 
 ## Breaking Enigma
 
