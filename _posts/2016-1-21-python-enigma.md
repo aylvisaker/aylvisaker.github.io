@@ -2,7 +2,7 @@
 layout: post
 title: "Python Enigma"
 categories: [projects]
-tags: [cryptography, permutations, code]
+tags: [cryptography, code]
 description: "WWII Cryptography on 21st Century Machinery"
 ---
 
@@ -62,9 +62,13 @@ The real boost to the key space came from the addition of a plugboard. Enigma op
 
 $$ \frac{1}{10!}\cdot\binom{26}{2}\cdot\binom{24}{2}\cdot\binom{22}{2}\dots\binom{10}{2}\cdot\binom{8}{2}  $$
 
-That's over $150$ trillion different plugboard variations. Multiply that by the number of ways to select and configure the rotors and you have a very very large key space.  All told the army version of the Enigma had about $159$ quintillion different key settings (that's a $159$ million million million). The navel M4 is almost $300$ times larger with over $46289$ quintillion keys: $ 46\,289\,896\,079\,431\,036\,032\,000 $. Even checking one million keys per second (which is quite a bit faster than I can do on my home computer), it would take over $5$ million years to check all the possible key settings for an army Enigma. If you had that many sheets of paper to stack, the stack would reach Proxima Centuary. And back. Fifty-eight times.
+That's over $150$ trillion different plugboard variations. Multiply that by the number of ways to select and configure the rotors and you have a very very large key space.  All told the army version of the Enigma had about $159$ quintillion different key settings (that's a $159$ million million million). The navel M4 is almost $300$ times larger with over $46289$ quintillion keys: $ 46\,289\,896\,079\,431\,036\,032\,000 $. If you had that many sheets of paper, you could make a stack that reached Proxima Centauri. And back. Fifty-eight times. Even checking one million keys per second (which is quite a bit faster than I can do on my home computer), it would take over $5$ million years to check all the possible key settings for an army Enigma.
 
 ## Breaking Enigma
+To understand how the Enigma was finally broken, we first have to understand a little bit about the German protocols for using the machine. Each day the machine was re-wired according to a code book. These were distributed to the entire military and great precaution was taken to keep them secret (for example, the naval codebooks were printed in water-soluble ink so that in case of capture they could be destroyed by throwing them into the ocean). To send a message, the operator first chose a message key which only consisted of the rotor settings, e.g. `VEP`. The operator configured the machine according to that day's settings in the codebook and first encrypted `VEPVEP`. The resulting output became the first six characters of the ciphertext he would broadcast. After encrypting the message key, the machine was set to `VEP` and the operator began typing his message. When an operator on the other end received this message (usually broadcast over the radio in morse code, which could be intercepted by the Allies) he set his machine according to the settings for the day and typed in the first six characters. The resulting output was the message key `VEPVEP`. The reason for repeating the message key was simple redundancy. If the operator on the receiving end saw `VEPVEQ` he would know something went wrong and ask the sender to re-broadcast the message. Once the receiver had the message key, he could reset his machine and continue to decrypt the rest of the message.
+
+This was the first flaw in the Enigma. It required the operator to select a key "randomly". Humans are terrible at doing things randomly.  Just like so many of us use `password` as a password, many Enigma operators chose very easy to guess message keys. Dirty words were especially popular, as were things like `ABC`. One operator always used his girlfriend's initials.
+
 
 ## Code
 ```python
@@ -74,11 +78,12 @@ for x in range(y):
 ```
 
 ## Future Work
-The repository will eventually contain an easy-to-use implementation of the British Bombe machine. It will accept a ciphertext message along with a crib and a location for that crib. After testing all of the wheel settings for contradictions, the machine will return a set of plausible wheel settings.
+The repository will eventually contain an easy-to-use implementation of the British Bombe machine. It will accept a ciphertext message along with a crib and a location for that crib. After testing all of the wheel settings for contradictions, the machine will return a set of plausible wheel settings. In addition, I would like to find time to add the following features:
 
-##### Wish List
 * automatic crib-sliding
 * *n-gram* testing to screen plausible keys.
 * *hill-climbing algorithm*
 * Frequent German words dictionary for searching without a key.
 * Database of historical Enigma messages.
+
+
