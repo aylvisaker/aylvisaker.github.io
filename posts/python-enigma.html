@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>The Very Good Blog of Interesting Things | Python Enigma</title>
+  <meta name="description" content="WWII Cryptography on 21st Century Machinery">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="Python Enigma">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="http://aylvisaker.github.io/posts/python-enigma">
+  <meta property="og:description" content="WWII Cryptography on 21st Century Machinery">
+  <meta property="og:site_name" content="The Very Good Blog of Interesting Things">
+  <meta property="og:image" content="http://aylvisaker.github.io/assets/og-image.jpg">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:url" content="http://aylvisaker.github.io/posts/python-enigma">
+  <meta name="twitter:title" content="Python Enigma">
+  <meta name="twitter:description" content="WWII Cryptography on 21st Century Machinery">
+  <meta name="twitter:image" content="http://aylvisaker.github.io/assets/og-image.jpg">
+
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <link href="http://aylvisaker.github.io/feed.xml" type="application/rss+xml" rel="alternate" title="The Very Good Blog of Interesting Things Last 10 blog posts" />
+
+  
+    <link type="text/css" rel="stylesheet" href="/assets/light.css">
+  
+
+</head>
+
+<body>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+
+  <main role="main">
+    <div class="grid grid-centered">
+      <div class="grid-cell">
+        <nav class="header-nav reveal">
+  <a href="/" class="header-logo" title="The Very Good Blog of Interesting Things">The Very Good Blog of Interesting Things</a>
+  <ul class="header-links">
+      
+      
+    
+    
+      <li>
+        <a href="https://github.com/aylvisaker" target="_blank" title="GitHub">
+          <span class="icon icon-social-github"></span>
+        </a>
+      </li>
+    
+    
+    
+    
+    
+    
+      <li>
+        <a href="mailto:aylvisaker@monmouthcollege.edu" target="_blank" title="Email">
+          <span class="icon icon-at"></span>
+        </a>
+      </li>
+    
+    
+      <li>
+        <a href="/feed.xml" target="_blank" title="RSS">
+          <span class="icon icon-social-rss"></span>
+        </a>
+      </li>
+    
+  </ul>
+</nav>
+
+        <article class="article reveal">
+          <header class="article-header">
+            <h1>Python Enigma</h1>
+            <p>WWII Cryptography on 21st Century Machinery</p>
+            <div class="article-list-footer">
+              <span class="article-list-date">
+                January 1, 2017
+              </span>
+              <span class="article-list-divider">-</span>
+              <!-- span class="article-list-minutes">
+                
+                
+                  8 minute read
+                
+              </span>
+              <span class="article-list-divider">-</span -->
+              <div class="article-list-tags">
+                
+                  <a href="/tag/cryptography">cryptography</a>
+                
+                  <a href="/tag/code">code</a>
+                
+              </div>
+            </div>
+          </header>
+
+          <div class="article-content">
+            <h1 id="python-enigma">Python Enigma</h1>
+<p><a href="github.io/aylvisaker/python-enigma">The repository</a> stores a python implementation of the Enigma Machine. It creates a class called <code class="highlighter-rouge">enigma</code> which is fully compatible with historical machines with a variety of different rotor configurations.</p>
+
+<ul>
+  <li><a href="#about-the-enigma-machine">About The Enigma Machine</a>
+    <ul>
+      <li><a href="#operation">Operation</a></li>
+      <li><a href="#mathematical-representation">Mathematical Representation</a></li>
+      <li><a href="#military-enigma-and-keyspace-analysis">Military Enigma and Keyspace Analysis</a></li>
+    </ul>
+  </li>
+  <li><a href="#code">Code</a></li>
+</ul>
+
+<h2 id="about-the-enigma-machine">About the Enigma Machine</h2>
+<h4 id="operation">Operation</h4>
+<p>The <a href="http://wki.pe/Enigma_machine">Enigma Machine</a> was invented near the end of World War I by a German engineer named Arthur Scherbius. It is a mechanical encryption device with a key space comparable to a $67$ bit key (which is significantly more than an algorithm called DES uses, and people were using that at the turn of the century). The machine works by routing electricity through rotating wheels, called rotors. A key press mechanically rotates these wheels while closing electrical circuits that drive current through the wires inside them and then through a lampboard with letters <code class="highlighter-rouge">A</code> through <code class="highlighter-rouge">Z</code>. Every time an operator presses a key on the keyboard, a lampboard lights up.</p>
+
+<p>It is helpful to have a specific picture of how this circuit works in order to understand how the cipher was broken. For now, we’ll ignore the step function which rotates the wheels. <a href="https://en.wikipedia.org/wiki/Electric_current#Current">Conventional current</a> travels out of the positive terminal battery through a circuit completed by the depressed key (with each key completing a different circuit). Current then enters the first rotor on the right side at a location around its perimeter determined by the letter pressed on the keyboard and comes out at a different location on its left perimeter. The rotor contains $26$ wires connecting the $26$ locations on its right side to the ones on its left. Those wires determine where the current goes. This new location represents a new letter and the first step in the encryption process. The current continues in a similar fashion through rotors two and three (and perhaps four if we’re using a German navy machine).</p>
+
+<p>After its journey through the rotors, current hits something called a reflector. The reflector functions in much the same way that the rotors do. It has $13$ wires inside of it connecting $26$ different spots on its right side (which are connected to the final rotor). This effectively turns the current around and sends it on a journey backwards through the rotors. The location where the current finally re-exits the first rotor determines which lamp lights up on the lightboard.</p>
+
+<p>Now this would all be quite over-elaborate if the rotors didn’t also move (any given setting would be an instance of a <a href="http://wki.pe/Substitution_cipher">substitution ciphers</a> which are trivially broken by <a href="http://wki.pe/Frequency_analysis">frequency analysis</a>). When the wheels rotate, they effectively scramble the entire circuit. So if Alice sets her machine to <code class="highlighter-rouge">ABC</code>  (indicating the starting configuration of the rotors) and types <code class="highlighter-rouge">HELLO WORLD</code> she might read something like <code class="highlighter-rouge">IOVDA YUEBH</code>. Notice that the letter <code class="highlighter-rouge">L</code> got mapped to a different letter each time it appeared in the message! Cryptographers call that a <a href="http://wki.pe/Polyalphabetic_cipher">polyalphabetic cipher</a>.</p>
+
+<p>Each wheel only has $26$ positions, but each key press mechanically drives the first (rightmost) wheel forward by $\frac{1}{26}$ of a full rotation. At a certain point in this process, the position of the right wheel triggers a turn in its left neighbor. Similarly, at some point that rotor will trigger a turn in the third rotor. The reflector does not turn, but you would have to be encrypting something almost $26^3 = 17576$ characters long before the machine returned to its original position (the aforementioned fourth rotor in the naval M4 did not turn like the other three). The reason that we say <em>almost</em> is a mechanical artifact that causes the wheels to <em>double step</em> occasionally. This needs to be accounted for in software emulating Enigma, but is not relevant to the present analysis.</p>
+
+<h4 id="mathematical-representation">Mathematical Representation</h4>
+<p>For now we restrict our attention to the version of the machine that was made available commercially. Mathematically speaking, the the Enigma generates a permutation which is an <em>involutory derangement</em>. That is to say, for any given state of the machine’s settings, the Enigma Machine is a function (called a <em>permutation</em>) from the <a href="Roman_alphabet">Roman alphabet</a> (which we shall call <code class="highlighter-rouge">alphabet</code>) to itself and follows some very specific rules. If we call that function $\sigma$ then these rules can be stated as follows. For each $x$ in <code class="highlighter-rouge">alphabet</code>:</p>
+
+<ol>
+  <li>$\sigma(x)$ is in <code class="highlighter-rouge">alphabet</code>.</li>
+  <li>$\sigma(y)=x$ for some $y$ in <code class="highlighter-rouge">alphabet</code>.</li>
+  <li>$\sigma(x)\neq x$.</li>
+  <li>$\sigma(\sigma(x)) = x$.</li>
+</ol>
+
+<p>The first two ensure that $\sigma$ is a <a href="http://wki.pe/Permutation">permutation</a>, the third ensures $\sigma$ is a <a href="http://wki.pe/Derangement">derangement</a>, and the fourth ensures $\sigma$ is an <a href="http://wki.pe/Involution_(mathematics)">involution</a>. The involutary property was implemented as a convenience, but the implementation also gave rise to the derangement property, we shall see, was the thread that made the whole sweater unravel. The convenience we speak of was that the machine could encrypt and decrypt without making any changes. For example, if Alice sets her machine to <code class="highlighter-rouge">ABC</code> and types <code class="highlighter-rouge">HELLO WORLD</code> she might read something like <code class="highlighter-rouge">IOVDA YUEBH</code> from her lightboard. If Bob then sets his machine to <code class="highlighter-rouge">ABC</code> and keys in that ciphertext, <code class="highlighter-rouge">HELLO WORLD</code> will appear on his lightboard.</p>
+
+<p>The derangement corresponding to each key setting is generated with something mathematicians call a <em>similarity</em>. The path of current through the machine can be regarded as one permutation $\rho$. For example, instead of saying</p>
+
+<script type="math/tex; mode=display">A \stackrel{R_1}{\longmapsto} B \stackrel{R_2}{\longmapsto} C \stackrel{R_3}{\longmapsto} D</script>
+
+<p>we may just say that $A\stackrel{\rho}{\longmapsto}D $. After the current maps through $\rho$ it hits reflector, which we shall call $\tau$. The reflector’s electrical connections implement an involutory derangement by simply pairing off letters. For example perhaps $\tau(A)=B$ and $\tau(B)=A$. Finally the current travels <em>backwards</em> through $\rho$ and a filament in the lightboard before completing its journey at the negative terminal of the battery.</p>
+
+<p>One key thing to understand about all this is that the process guarantees the encryption $\sigma$, inherits the interesting properties of $\tau$. To see why this is, imagine the journey of a key mapped through $\sigma$, twice (once for encryption, once for decryption). Here is a plausible example: we enter <code class="highlighter-rouge">A</code> on the keyboard. First $\rho(A) = B$ takes us through the rotors, then $\tau(B)=C$ takes us through the reflector. When traveling <em>backwards</em> through the rotors, we are mapping through $\rho^{-1}$. This is a slightly fancy way of saying that if $\rho(A)=B$ then $\rho^{-1}(B)=A$. This behavior is exactly what you would expect from connected wires. So finally $\rho^{-1}(C)=D$ and we have encrypted $\sigma(A)=D$ (so <code class="highlighter-rouge">D</code> lights up on our machine). In mathematical notation, we would say $\sigma=\rho^{-1}\tau\rho$. When this is true, we say that $\sigma$ and $\rho$ are <a href="http://wki.pe/Matrix_similarity">similar</a> permutations. It is a good exercise to convince oneself that $\rho$, $\rho^{-1}$, and $\sigma$ are actually permutations (i.e. satisfy properties one and two).</p>
+
+<p>Now let’s see what happens when we press <code class="highlighter-rouge">D</code> on the keyboard (with the exact same positions for all the rotors). First $\rho(D) = C$ (because $\rho$ is the inverse of $\rho^{-1}$, another good exercise for the reader). Then $\tau(C )=B$ since $\tau$ is an involution. Finally $\rho^{-1}(B)=A$ by definition of $\rho^{-1}$. Viola! This shows that $\sigma$ is also an involution. In fact this argument shows that any permutation similar to an involution must also be involutary. All that remains is to show that $\sigma$ is a derangement. To see this we suppose that $\sigma(A)=A$ and try to figure out how such a thing might happen. It would have to look something like this:
+<script type="math/tex">A \stackrel{\rho}{\longmapsto} B \stackrel{\tau}{\longmapsto} C \stackrel{\rho^{-1}}{\longmapsto} A.</script>
+But we can already see that this is impossible because $\rho(A)=B$ and $\rho^{-1}(C )=A$, which contradicts the definition of $\rho^{-1}$. We might resolve this by supposing that $\tau(B)=B$ instead of $C$, but then $\tau$ would not be a derangement. Indeed, any permutation similar to a derangement is itself a derangement.</p>
+
+<h3 id="military-enigma-and-keyspace-analysis">Military Enigma and Keyspace Analysis</h3>
+
+<p>We have seen that in the commercial enigma a user presses a key sending current through a physical manifestation of an involutory derangement and then through a light bulb. More sophisticated versions of the machine (including those commonly used by the German military) included some extra settings that increase the key space. This was necessary as the commercial Enigma machine only had $3!\cdot 26^3 = 105456$ different key settings. The rotors could be removed and replaced in any order (hence the $3!$), and each rotor could be set to any of $26$ different positions (one for each letter in <code class="highlighter-rouge">alphabet</code>).  It would take a long time to check all of those settings without a computer, but it was definitely feasible for a determined eavesdropper (like, say, the Allied Forces).</p>
+
+<p>One way of increasing the key space was to introduce extra rotors. The German army, for instance, chose from a set of $5$ rotors instead of $3$, which increased the number of configurations by a factor of $10$ to about $1$ million. The navy chose $3$ out of $8$ and selected a fourth thin rotor from a set of $2$, bringing the size of the key space up to $2\cdot\frac{8!}{5!}\cdot26^4$. That’s a monstrous $307$ million different possible key settings. The navy also had a second reflector, but we don’t count this in our computations because in practice it was never changed. Each rotors also has a setting that essentially controls the point in the rotation at which the rotor triggers a step for its left neighbor. We don’t count this in the key space either. Even with randomly selected <em>Ringstellung</em> the first few characters will decrypt correctly (until the rightmost ring incorrectly triggers a rotation of the next rotor, or fails to do so). After seeing this it isn’t difficult for a cryptographer to narrow down the choices and decrypt the rest of the message.</p>
+
+<p>The real boost to the key space came from the addition of a plugboard. Enigma operators could open a door on the front of the machine to reveal $26$ sockets for up to $13$ wires (although the standard practice was to use exactly $10$). Current travelled through these wires after the keyboard on the way to the rotor and once again after the reverse path through the rotors on the way to the lightboard. This adds an additional permutation (and its inverse) to the system. We note here that the plugboard (and extra rotor) do not change much about the substance of the arguments made above about the special properties of $\sigma$. The permutation $\sigma$ is still an involutory derangement because it is still <em>similar</em> to $\tau$. The number of ways to configure a plugboard with $10$ wires in $26$ sockets is staggeringly large:</p>
+
+<script type="math/tex; mode=display">\frac{1}{10!}\cdot\binom{26}{2}\cdot\binom{24}{2}\cdot\binom{22}{2}\dots\binom{10}{2}\cdot\binom{8}{2}</script>
+
+<p>That’s over $150$ trillion different plugboard variations. Multiply that by the number of ways to select and configure the rotors and you have a very very large key space.  All told the army version of the Enigma had about $159$ quintillion different key settings (that’s a $159$ million million million). The navel M4 keyspace was almost $300$ times larger with over $46\,289$ quintillion keys: $ 46\,289\,896\,079\,431\,036\,032\,000 $. If you had that many sheets of paper, you could make a stack that reached Proxima Centauri. And back. Fifty-eight times. Even checking one million keys per second (which is quite a bit faster than I can do on my home computer), it would take over $5$ million years to check all the possible key settings for an army Enigma.</p>
+
+<h2 id="code">Code</h2>
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="s">'hello world'</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
+	<span class="k">print</span><span class="p">(</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">4</span><span class="o">*</span><span class="mi">5</span><span class="p">)</span>
+</code></pre>
+</div>
+
+
+          </div>
+
+          <!-- div class="article-share">
+            
+            <a href="" title="Share on Twitter" onclick="window.open('https://twitter.com/home?status=Python Enigma - http://aylvisaker.github.io/posts/python-enigma ', 'newwindow', 'width=500, height=225'); return false;">
+              <span class="icon icon-social-twitter"></span>
+            </a>
+            <a href="" title="Share on Facebook" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=http://aylvisaker.github.io/posts/python-enigma', 'newwindow', 'width=500, height=500'); return false;">
+              <span class="icon icon-social-facebook"></span>
+            </a>
+            <a href="" title="Share on Google+" onclick="window.open('https://plus.google.com/share?url=http://aylvisaker.github.io/posts/python-enigma', 'newwindow', 'width=550, height=400'); return false;">
+              <span class="icon icon-social-googleplus"></span>
+            </a>
+          </div -->
+
+          
+        </article>
+        <footer class="footer reveal">
+  <p>
+  Created with <a href="https://jekyllrb.com/">Jekyll</a> using the <a href="https://github.com/nielsenramon/chalk">Chalk</a> theme. Edited in <a href="https://stackedit.io/">StackEdit</a>. Hosted by <a href ="https://www.github.com/">GitHub</a>.
+  </p>
+</footer>
+
+      </div>
+    </div>
+  </main>
+  <script type="text/javascript" src="/assets/vendor.js"></script>
+<script type="text/javascript" src="/assets/application.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
+<script>
+  WebFont.load({
+    google: {
+      families: ['Cormorant Garamond:700', 'Lato:300,400,700']
+    }
+  });
+</script>
+
+
+  <script>
+    window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
+    ga('create','UA-88755650-1','auto');ga('send','pageview')
+  </script>
+  <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+
+
+</body>
+</html>
